@@ -126,6 +126,16 @@ body, .app {
 .book-authors {
   font-size: 0.8em;
 }
+
+.book-authors ul {
+  padding: 0;
+   list-style-type: none;
+}
+.book-author {
+  padding: 0px !important;
+  line-height: 1.0;
+}
+
 .book-title {
   margin-top: 10px;
 }

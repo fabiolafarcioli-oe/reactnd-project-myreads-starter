@@ -12,6 +12,22 @@ class ListBooks extends Component {
   }
 
 
+  changeShelf2 = (book,newshelf) => {
+    console.log('changeShelf2:')
+    this.props.onChangeShelf(book, newshelf, true)
+    // BooksAPI.update(book, newshelf)
+    // BooksAPI.getAll().then((books) => {
+    //   this.setState({ books })
+    // })
+    // this.setState((state) => ({
+    //   books: state.books.filter((c) => c.id !== book.id)
+    // }))
+    // BooksAPI.update(book, newshelf)
+    // this.setState({
+    //
+    // })
+  }
+
 
   render(){
 
@@ -19,13 +35,13 @@ class ListBooks extends Component {
 
     let currentlyReadingBooks, wantToReadBooks, readBooks
 
-    const match_1 = new RegExp(escapeRegExp('currentlyReading'), 'i')
+    const match_1 = new RegExp(escapeRegExp('currentlyReading'))
     currentlyReadingBooks = books.filter((book) => match_1.test(book.shelf))
 
-    const match_2 = new RegExp(escapeRegExp('wantToRead'), 'i')
+    const match_2 = new RegExp(escapeRegExp('wantToRead'))
     wantToReadBooks = books.filter((book) => match_2.test(book.shelf))
 
-    const match_3 = new RegExp(escapeRegExp('read'), 'i')
+    const match_3 = new RegExp(escapeRegExp('read'))
     readBooks = books.filter((book) => match_3.test(book.shelf))
 
     return(
@@ -43,7 +59,7 @@ class ListBooks extends Component {
                   {currentlyReadingBooks.map((book) => (
                     <Book key={book.id}
                       book={book}
-                      onChangeShelf={this.props.changeShelf}
+                      onChangeShelf2={this.changeShelf2}
                     />
                   ))}
 
@@ -58,6 +74,7 @@ class ListBooks extends Component {
                   {wantToReadBooks.map((book) => (
                     <Book key={book.id}
                       book={book}
+                      onChangeShelf2={this.changeShelf2}
                     />
                   ))}
 
@@ -71,6 +88,7 @@ class ListBooks extends Component {
                   {readBooks.map((book) => (
                     <Book key={book.id}
                       book={book}
+                      onChangeShelf2={this.changeShelf2}
                     />
                   ))}
                 </ol>
