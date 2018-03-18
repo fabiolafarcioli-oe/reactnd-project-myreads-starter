@@ -58,13 +58,13 @@ class Book extends Component {
           </div>
           <div className="book-authors">
             <ul>
-            {/* {book.authors.length > 1 ? (
+            {(Array.isArray(book.authors) && book.authors > 1) ? (
               book.authors.map((author) => (
                 <li key={author} className="book-author">{author}</li>
               ))
             ) : (
               <li key={book.authors} className="book-author">{book.authors}</li>
-            )} */}
+            )}
 
             </ul>
           </div>
