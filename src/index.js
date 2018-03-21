@@ -6,7 +6,7 @@ import './index.css'
 
 ReactDOM.render(
   <BrowserRouter
-    forceRefresh="true"
+    forceRefresh={true}
   >
     <App />
   </BrowserRouter>,
